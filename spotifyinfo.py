@@ -4,12 +4,18 @@ import requests
 import json
 from pprint import pprint
 import sys
+import dotenv
+import os
+
+dotenv.load_dotenv('./.env')
+
  
 mylcd = I2C_LCD_driver.lcd()
 previous_song = ''
 base_url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user='
 user = 'lurttu69'
-key = '9c395faf48c698e191c2a0a14220c31e'
+key = os.getenv('API_KEY')
+print(key)
 artist = ''
 song = ''
  
